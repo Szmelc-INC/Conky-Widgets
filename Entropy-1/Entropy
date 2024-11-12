@@ -1,0 +1,40 @@
+conky.config = {
+    background = true,
+    use_xft = true,
+    font = 'DejaVu Sans:size=10',
+    own_window = true,
+    own_window_transparent = true,
+    own_window_type = 'desktop',  -- Ensures Conky is treated as a part of the desktop background
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',  -- Additional hints for window behavior
+    double_buffer = true,
+    update_interval = 1,
+    minimum_width = 250,
+    maximum_width = 250,
+    alignment = 'top_right',
+    gap_x = 10,
+    gap_y = 10,
+    no_buffers = true,
+    default_color = 'white',
+    use_spacer = 'none',
+    text_buffer_size = 2048,
+    color0 = '#00FF00',  -- Green for the title
+    color1 = '#00FFFF',  -- Cyan for headers
+    color2 = '#FFD700',  -- Gold for the clock
+};
+
+conky.text = [[
+#${alignc}${font DejaVu Sans:bold:size=14}${color0}Entropy Linux${font DejaVu Sans:size=10}${color white}
+#${voffset 5}${hr 2}
+${voffset 5}${alignc}${font DejaVu Sans:bold:italic:size=16}${color2}${time %H:%M}${font DejaVu Sans:size=10}${color white}
+${voffset 2}${alignc}${font DejaVu Sans:size=9}${time %A %d %B %Y}${font DejaVu Sans:size=10}${color white}
+${voffset 5}${hr 2}
+${font DejaVu Sans:bold:size=10}${color1}Free Space:${color white}${font}
+${voffset 2}Root:${alignr}${fs_free /} / ${fs_size /}
+${voffset 2}Home:${alignr}${fs_free /home} / ${fs_size /home}
+${voffset 5}${hr 2}
+${font DejaVu Sans:bold:size=10}${color1}Memory Usage:${color white}${font}
+${voffset 2}RAM: ${alignr}$mem / $memmax
+${voffset 2}Swap: ${alignr}$swap / $swapmax
+]];
